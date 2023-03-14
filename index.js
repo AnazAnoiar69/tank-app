@@ -1,28 +1,29 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const io = require('socket.io')(server);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
-const net = require('net');
-const client = new net.Socket();
+const port = 80;
 
-client.connect(20547, '185.213.1.24', function() {
-  console.log('Connected to server');
-});
-
-client.on('data', function(data) {
-  io.emit('data', data.toString());
-});
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket) {
-  console.log('a user connected');
+  console.log('A user connected');
+
+  socket.on('disconnect', function() {
+    console.log('A user disconnected');
+  });
+
+  socket.on('data', function(data) {
+    console.log('Data received:', data);
+    io.emit('data', data);
+  });
 });
 
-server.listen(3000, function() {
-  console.log('listening on *:3000');
+http.listen(port, function() {
+  console.log('Listening on port', port);
 });

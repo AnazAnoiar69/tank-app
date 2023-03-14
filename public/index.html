@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wialon Retranslator App</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    socket.on('data', function(data) {
+      var p = document.createElement('p');
+      p.textContent = JSON.stringify(data);
+      document.body.appendChild(p);
+    });
+  </script>
+</head>
+<body>
+  <h1>Wialon Retranslator App</h1>
+</body>
+</html>
