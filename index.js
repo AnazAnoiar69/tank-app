@@ -7,13 +7,12 @@ const io = require('socket.io')(server);
 const net = require('net');
 const client = new net.Socket();
 
-client.connect(20547, '185.213.1.24', function() {
+client.connect(3000, '13.250.30.54', function() {
   console.log('Connected to server');
 });
 
 client.on('data', function(data) {
   io.emit('data', data.toString());
-  console.log(data.toString());
 });
 
 app.get('/', function(req, res) {
