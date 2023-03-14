@@ -7,7 +7,7 @@ const io = require('socket.io')(server);
 const net = require('net');
 const client = new net.Socket();
 
-client.connect(3000, '13.250.30.54', function() {
+client.connect(20547, '185.213.1.24', function() {
   console.log('Connected to server');
 });
 
