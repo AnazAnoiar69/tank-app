@@ -24,6 +24,7 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(port, function() {
+http.listen(port, function(e) {
   console.log('Listening on port', port);
+  console.log(e);
 });
