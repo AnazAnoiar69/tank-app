@@ -14,5 +14,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnazAnoiar69/tank-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AnazAnoiar69/tank-app/issues"
+  },
+  "homepage": "https://github.com/AnazAnoiar69/tank-app#readme"
 }
